@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #define LIMIT 1000
 
@@ -29,6 +30,7 @@ int main(void)
 	{
 		c = s;
 		i = 0;
+		sp = 0;
 		while(*c)
 		{
 			if(*c==' '||*c==','||*c=='.'||*c=='\n'||*c=='\0')
@@ -47,5 +49,7 @@ int main(void)
 		}
 		fputs(s,fout);
 	}
+	fclose(fin);
+	fclose(fout);
 	return 0;
 }
