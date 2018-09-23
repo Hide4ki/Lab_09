@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 #define LIMIT 1000
 
@@ -16,13 +15,13 @@ int main(void)
 	{
 		printf("Error open of input file \n");
 		getchar();
-		return 0;
+		return 1;
 	}
 	if(!(fout = fopen("output.txt","w")))
 	{
 		printf("Error open of output file \n");
 		getchar();
-		return 0;
+		return 1;
 	}
 	printf("Enter N = ");
 	scanf("%d",&N);
