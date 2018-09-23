@@ -24,7 +24,7 @@ int main(void)
 		getchar();
 		return 0;
 	}
-	printf("Emter N = ");
+	printf("Enter N = ");
 	scanf("%d",&N);
 	while(fgets(s,sizeof(s),fin))
 	{
