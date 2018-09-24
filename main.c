@@ -9,6 +9,7 @@ int main(void)
 	int i;
 	char *sp;
 	char *c;
+	int ch;
 	char *tmp;
 	char s[LIMIT];
 	if(!(fin = fopen("input.txt","r")))
@@ -30,20 +31,29 @@ int main(void)
 		c = s;
 		i = 0;
 		sp = 0;
+		ch = 0;
 		while(*c)
 		{
-			if((*c < 'a' || *c>'z') && (*c < 'A' || *c > 'Z') )
+			if((*c < 'a' || *c >'z') && (*c < 'A' || *c > 'Z') && ( *c < '0' || *c > '9'))
 			{
-				i += sp?1:0;
-				if(i==N)
+				if(!ch)
 				{
-					tmp = sp;
-					while(*sp++ = *c++);
-					break;
+					i += sp?1:0;
+					if(i==N)
+					{
+						tmp = sp;
+						while(*sp++ = *c++);
+						break;
+					}
 				}
+				ch = 0;
 				sp = 0;
 			}
-			else sp = !sp?c:sp;
+			else 
+			{
+				if(*c >= '0' && *c <= '9') ch = 1;
+				sp = !sp?c:sp;
+			}
 			c++;
 		}
 		fputs(s,fout);
